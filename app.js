@@ -10,6 +10,120 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+const ManagerQuestions =[{
+    type:'input',
+    message: "What is your manger's name?",
+    name: "name",
+},
+{
+    type:'input',
+    message: "What is your manger's id?",
+    name: "id",
+},
+{
+    type:'input',
+    message: "What is your manger's name?",
+    name: "name",
+},
+{
+    type:'input',
+    message: "What is your manger's office number?",
+    name: "officeNumber",
+},
+{
+    type:'list',
+    message: "What is your manger's name?",
+    choices: [
+        Manager,
+        Engineer,
+        Intern,
+        "I do not want to add any more members",
+    ],
+    name: "",
+},
+]
+
+const EngineerQuestions =[{
+    type:'input',
+    message: "What is your Engineer's name?",
+    name: "name",
+},
+{
+    type:'input',
+    message: "What is your Engineer's id?",
+    name: "id",
+},
+{
+    type:'input',
+    message: "What is your Engineer's name?",
+    name: "name",
+},
+{
+    type:'input',
+    message: "What is your Engineer's Github username?",
+    name: "github",
+},
+{
+    type:'list',
+    message: "What type of team member would you like to add?",
+    choices: [
+        Manager,
+        Engineer,
+        Intern,
+        "I do not want to add any more members",
+    ],
+    name: "",
+},
+]
+
+const InternQuestions =[{
+    type:'input',
+    message: "What is your Intern's name?",
+    name: "name",
+},
+{
+    type:'input',
+    message: "What is your Intern's id?",
+    name: "id",
+},
+{
+    type:'input',
+    message: "What is your Intern's name?",
+    name: "name",
+},
+{
+    type:'input',
+    message: "What is your Intern's school?",
+    name: "school",
+},
+{
+    type:'list',
+    message: "What type of team member would you like to add?",
+    choices: [
+        Manager,
+        Engineer,
+        Intern,
+        "I do not want to add any more members",
+    ],
+    name: "",
+},
+]
+
+// inquirer
+//     .prompt(questions)
+//     .then ( response => {
+//         if(response.addEmployee === "intern"){
+//             internQuestions()
+//         }
+//         // console.log(response);
+//         // console.log(response.title);
+//         // console.log(response.description);
+//         // console.log(response.github);
+        
+//         writeToFile("Gen-README.md", response);
+//     });   
+       
+// }
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
