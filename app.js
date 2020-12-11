@@ -10,7 +10,11 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-const ManagerQuestions =[{
+const employeeList = [];
+
+function askUserForManagerInfo (){
+
+    return inquirer.prompt({
     type:'input',
     message: "What is your manger's name?",
     name: "name",
@@ -22,8 +26,8 @@ const ManagerQuestions =[{
 },
 {
     type:'input',
-    message: "What is your manger's name?",
-    name: "name",
+    message: "What is your manger's email?",
+    name: "email",
 },
 {
     type:'input',
@@ -40,9 +44,19 @@ const ManagerQuestions =[{
         "I do not want to add any more members",
     ],
     name: "",
-},
-]
 
+}).then ((managerData) =>{
+
+    const newManager = new Manager( managerData.name, managerData.email, managerData.id, managerData.officeNumber,)
+
+    employeeList.push(newManager);
+
+    function askUserForEmployeeType();
+
+})
+
+
+function askUserForEngineerInfo (){
 const EngineerQuestions =[{
     type:'input',
     message: "What is your Engineer's name?",
@@ -76,7 +90,7 @@ const EngineerQuestions =[{
 },
 ]
 
-const InternQuestions =[{
+function askUserForInternInfo(){
     type:'input',
     message: "What is your Intern's name?",
     name: "name",
