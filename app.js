@@ -14,114 +14,144 @@ const employeeList = [];
 
 function askUserForManagerInfo (){
 
-    return inquirer.prompt({
+    return inquirer.prompt([
+    {
     type:'input',
     message: "What is your manger's name?",
     name: "name",
-},
-{
+    },
+
+    {
     type:'input',
     message: "What is your manger's id?",
     name: "id",
-},
-{
+    },
+
+    {
     type:'input',
     message: "What is your manger's email?",
     name: "email",
-},
-{
+    },
+
+    {
     type:'input',
     message: "What is your manger's office number?",
     name: "officeNumber",
-},
-{
-    type:'list',
-    message: "What is your manger's name?",
-    choices: [
-        Manager,
-        Engineer,
-        Intern,
-        "I do not want to add any more members",
-    ],
-    name: "",
+    },
 
-}).then ((managerData) =>{
+
+
+    ]).then ((managerData) => {
 
     const newManager = new Manager( managerData.name, managerData.email, managerData.id, managerData.officeNumber,)
 
     employeeList.push(newManager);
 
-    function askUserForEmployeeType();
+    
 
-})
+    })
+}
+
+function askUserForEmployeeType(){
+
+    return inquirer.prompt([
+        {
+        type:'list',
+        message: "What is your manger's name?",
+        choices: [
+            Manager,
+            Engineer,
+            Intern,
+            "I do not want to add any more members",
+        ],
+        name: "",
+        }
+
+     ]).then ((managerData) => {
+
+        const newManager = new Manager( managerData.name, managerData.email, managerData.id, managerData.officeNumber,)
+    
+        employeeList.push(newManager);
+    
+    })
+};
+
 
 
 function askUserForEngineerInfo (){
-const EngineerQuestions =[{
+
+    return inquirer.prompt([
+    {
     type:'input',
     message: "What is your Engineer's name?",
     name: "name",
-},
-{
+    },
+
+    {
     type:'input',
     message: "What is your Engineer's id?",
     name: "id",
-},
-{
+    },
+
+    {
     type:'input',
     message: "What is your Engineer's name?",
     name: "name",
-},
-{
+    },
+
+    {   
     type:'input',
     message: "What is your Engineer's Github username?",
     name: "github",
-},
-{
-    type:'list',
-    message: "What type of team member would you like to add?",
-    choices: [
-        Manager,
-        Engineer,
-        Intern,
-        "I do not want to add any more members",
-    ],
-    name: "",
-},
-]
+    },
+
+    ]).then ((managerData) => {
+
+    const newManager = new Manager( managerData.name, managerData.email, managerData.id, managerData.officeNumber,)
+
+    employeeList.push(newManager);
+
+    })
+
+}
 
 function askUserForInternInfo(){
+
+    return inquirer.prompt([
+    {
     type:'input',
     message: "What is your Intern's name?",
     name: "name",
-},
-{
+    },
+
+    {
     type:'input',
     message: "What is your Intern's id?",
     name: "id",
-},
-{
+    },
+
+    {
     type:'input',
     message: "What is your Intern's name?",
     name: "name",
-},
-{
+    },
+
+    {
     type:'input',
     message: "What is your Intern's school?",
     name: "school",
-},
-{
-    type:'list',
-    message: "What type of team member would you like to add?",
-    choices: [
-        Manager,
-        Engineer,
-        Intern,
-        "I do not want to add any more members",
-    ],
-    name: "",
-},
-]
+    },
+
+    ]).then ((managerData) => {
+
+    const newManager = new Manager( managerData.name, managerData.email, managerData.id, managerData.officeNumber,)
+
+    employeeList.push(newManager);
+
+    })
+
+};
+
 
 // inquirer
 //     .prompt(questions)
