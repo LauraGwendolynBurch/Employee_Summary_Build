@@ -69,10 +69,16 @@ function askUserForEmployeeType(){
 
      ]).then ((newEmployeeChoices) => {
 
-    
         // if the selected a new engineer
+
         askUserForEngineerInfo ()
+
+        // else if the user 
+        askUserForInternInfo()
     
+        // exit app else
+        createHtmlFile()
+
     })
 
     
@@ -107,11 +113,11 @@ function askUserForEngineerInfo (){
     name: "github",
     },
 
-    ]).then ((managerData) => {
+    ]).then ((engineerData) => {
 
-    const newManager = new Manager( managerData.name, managerData.email, managerData.id, managerData.officeNumber,)
+    const newEngineer = new Engineer (engineerData.name, engineerData.id, engineerData.email, engineerData.github)
 
-    employeeList.push(newManager);
+    employeeList.push(newEngineer);
 
     askUserForInternInfo()
 
@@ -131,14 +137,14 @@ function askUserForInternInfo(){
 
     {
     type:'input',
-    message: "What is your Intern's id?",
-    name: "id",
+    message: "What is your Intern's email?",
+    name: "email",
     },
 
     {
     type:'input',
-    message: "What is your Intern's name?",
-    name: "name",
+    message: "What is your Intern's id?",
+    name: "id",
     },
 
     {
@@ -147,34 +153,26 @@ function askUserForInternInfo(){
     name: "school",
     },
 
-    ]).then ((managerData) => {
+    ]).then ((internData) => {
 
-    const newManager = new Manager( managerData.name, managerData.email, managerData.id, managerData.officeNumber,)
+    const newIntern = new Intern( internData.name, internData.email, internData.id, internData.school,)
 
-    employeeList.push(newManager);
+    employeeList.push(newIntern);
 
     })
 
 };
 
+function createHtmlFile(){
+
+    const htmlContnt = render ( employeeList);
+    // use the fs moduel to create the output file
+
+} 
+
 askUserForManagerInfo()
 
 
-// inquirer
-//     .prompt(questions)
-//     .then ( response => {
-//         if(response.addEmployee === "intern"){
-//             internQuestions()
-//         }
-//         // console.log(response);
-//         // console.log(response.title);
-//         // console.log(response.description);
-//         // console.log(response.github);
-        
-//         writeToFile("Gen-README.md", response);
-//     });   
-       
-// }
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
