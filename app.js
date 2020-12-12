@@ -12,7 +12,7 @@ const render = require("./lib/htmlRenderer");
 
 const employeeList = [];
 
-function askUserForManagerInfo (){
+function askUserForManagerInfo(){
 
     return inquirer.prompt([
     {
@@ -47,7 +47,7 @@ function askUserForManagerInfo (){
 
     employeeList.push(newManager);
 
-    
+    askUserForEmployeeType()
 
     })
 }
@@ -67,13 +67,15 @@ function askUserForEmployeeType(){
         name: "",
         }
 
-     ]).then ((managerData) => {
+     ]).then ((newEmployeeChoices) => {
 
-        const newManager = new Manager( managerData.name, managerData.email, managerData.id, managerData.officeNumber,)
     
-        employeeList.push(newManager);
+        // if the selected a new engineer
+        askUserForEngineerInfo ()
     
     })
+
+    
 };
 
 
@@ -111,8 +113,11 @@ function askUserForEngineerInfo (){
 
     employeeList.push(newManager);
 
+    askUserForInternInfo()
+
     })
 
+    
 }
 
 function askUserForInternInfo(){
@@ -151,6 +156,8 @@ function askUserForInternInfo(){
     })
 
 };
+
+askUserForManagerInfo()
 
 
 // inquirer
