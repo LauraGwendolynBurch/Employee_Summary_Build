@@ -43,7 +43,7 @@ function askUserForManagerInfo(){
 
     ]).then ((managerData) => {
 
-    const newManager = new Manager( managerData.name, managerData.email, managerData.id, managerData.officeNumber,)
+    const newManager = new Manager( managerData.name, managerData.email, managerData.id, managerData.officeNumber)
 
     employeeList.push(newManager);
 
@@ -57,27 +57,38 @@ function askUserForEmployeeType(){
     return inquirer.prompt([
         {
         type:'list',
-        message: "What is your manger's name?",
+        message: "What type of employee do you want to add",
         choices: [
             Manager,
             Engineer,
             Intern,
             "I do not want to add any more members",
         ],
-        name: "",
+        name: "typeOfEmployee",
         }
 
      ]).then ((newEmployeeChoices) => {
 
-        // if the selected a new engineer
+        switch(newEmployeeChoices.typeOfEmployee){
+            case "Manager":
+            askUserForManagerInfo()
+            break;
 
-        askUserForEngineerInfo ()
+            // if the selected a new engineer
+            case "Engineer":
+            askUserForEngineerInfo ()
+            break;
 
-        // else if the user 
-        askUserForInternInfo()
+            // else if the user 
+            case "Intern":
+            askUserForInternInfo()
+            break;
     
-        // exit app else
-        createHtmlFile()
+            // exit app else
+            case "I do not want to add any more members":
+            createHtmlFile()
+
+        }
 
     })
 
@@ -103,8 +114,8 @@ function askUserForEngineerInfo (){
 
     {
     type:'input',
-    message: "What is your Engineer's name?",
-    name: "name",
+    message: "What is your Engineer's email?",
+    name: "email",
     },
 
     {   
@@ -119,7 +130,7 @@ function askUserForEngineerInfo (){
 
     employeeList.push(newEngineer);
 
-    askUserForInternInfo()
+    askUserForEmployeeType()
 
     })
 
@@ -159,6 +170,8 @@ function askUserForInternInfo(){
 
     employeeList.push(newIntern);
 
+    askUserForEmployeeType()
+
     })
 
 };
@@ -167,11 +180,18 @@ function createHtmlFile(){
 
     const htmlContnt = render ( employeeList);
     // use the fs moduel to create the output file
+    fs.writeFile(outputPath, htmlContnt, (err) => {
+        if (err) throw err;
+        console.log(`File added to ${OUTPUT_DIR}`)
 
+    })
 } 
 
-askUserForManagerInfo()
+function init(){
+    askUserForManagerInfo()
+}
 
+init();
 
 
 // Write code to use inquirer to gather information about the development team members,
