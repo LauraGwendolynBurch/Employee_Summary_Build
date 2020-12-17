@@ -1,7 +1,7 @@
 # Employee_Summary_Build
 
 ## Description
-
+If you need a way to collect information about a team of employees use this application. It will build cards to organize and hold informatiion about each team member.  
 
 ## Table of Contents
 
@@ -36,12 +36,8 @@
 
 
 ## Installation
-* NPM i inquirer
 * node.js
-* NPM Jest
-
-## User-Story
-
+* express 
 
 ## License
 [Apache License, Version 2.0](https://opensource.org/licenses/Apache-2.0)
@@ -51,15 +47,11 @@
 Clone repo | Push changes | Create Pull request
 
 ## Test
-![video of project]()
+![image of project](./assets/image.png)
 
-![Sample gif](./images/video.gif)
+![Sample gif](./assets/employee.gif)
 
-## Image of sample code
-![Sample Image of Project](./images/samplecode1.png)
-
-## Image of sample code
-![Sample Image of Project](./images/samplecode.png)
+[link to full video](https://drive.google.com/file/d/1YO8un12BEqmWGUZ61B9tLNcKe-2_Hbrb/preview)
 
 ## Credits
 Anna Conover (tutor)
